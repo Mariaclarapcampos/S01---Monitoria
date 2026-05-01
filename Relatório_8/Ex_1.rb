@@ -1,59 +1,37 @@
-class BebidaAfterlife
-  def initialize(nome, custo_base)
-    @nome = nome
-    self.custo_base = custo_base  
-  end
+class Personagem:
+    def __init__(self, vida: int, resistencia: int):
+        self._vida = vida
+        self._resistencia = resistencia
 
-  def nome
-    @nome
-  end
+    @property
+    def vida(self):
+        return self._vida
 
-  def nome=(novo_nome)
-    @nome = novo_nome
-  end
+    @vida.setter
+    def vida(self, valor):
+        if valor < 0:
+            self._vida = 0
+        else:
+            self._vida = valor
 
-  def custo_base
-    @custo_base
-  end
+    def __str__(self):
+        return f"Personagem com {self._vida} de vida e {self._resistencia} de resistência"
 
-  def custo_base=(valor)
-    if valor.is_a?(Numeric) && valor > 0
-      @custo_base = valor
-    else
-      puts "Erro: custo deve ser maior que zero!"
-    end
-  end
 
-  def preco_total
-    custo_base
-  end
+class Cavaleiro(Personagem):
+    def __init__(self, vida: int, resistencia: int, armadura_pesada: bool):
+        super().__init__(vida, resistencia)
+        self.armadura_pesada = armadura_pesada
 
-  def to_s
-    "Bebida: #{@nome} | Valor Final: $#{preco_total}"
-  end
-end
+    def __str__(self):
+        tipo_armadura = "sim" if self.armadura_pesada else "não"
+        return f"Cavaleiro com {self._vida} de vida, {self._resistencia} de resistência e armadura pesada: {tipo_armadura}"
 
-class DrinkIconico < BebidaAfterlife
-  def initialize(nome, custo_base, nivel_notoriedade)
-    super(nome, custo_base)
-    @nivel_notoriedade = nivel_notoriedade
-  end
 
-  def preco_total
-    custo_base + (@nivel_notoriedade * 8)
-  end
+p = Personagem(100, 50)
+print(p)
 
-  def to_s
-    "Drink Icônico: #{@nome} | Notoriedade: #{@nivel_notoriedade} | Valor Final: $#{preco_total}"
-  end
-end
-
-drink1 = DrinkIconico.new("Johnny Silverhand", 50, 10)
-drink2 = DrinkIconico.new("Rogue", 40, 7)
-drink3 = DrinkIconico.new("V", 60, 12)
-
-lista = [drink1, drink2, drink3]
-
-lista.each do |drink|
-  puts drink
-end
+c = Cavaleiro(150, 80, True)
+print(c)
+c.vida = -20
+print(c)
