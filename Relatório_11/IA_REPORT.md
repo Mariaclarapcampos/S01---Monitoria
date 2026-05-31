@@ -360,3 +360,8 @@ Tempero usado: Sal (quantidade: 2)
 👉 Assim você tem o ArrayList<Prato> representando o cardápio da expedição, e o for-each percorre cada prato chamando servir().
 Quer que eu te mostre também como deixar o cardápio dinâmico, pedindo os nomes dos monstros via Scanner para o usuário digitar?
 
+
+
+FEEDBACK:
+O feedback que a IA retornou foi bom, visto que solucionou minhas dúvidas. Exceto em uma parte, em que a resposta não foi clara e tive que pedir em forma de código para entender.
+Ele me ajudou a entender, com os códigos fornecidos, parte da matéria que eu estva em dúvida e não me lembrava como aplicar,o que me ajudou já que entendi o código e me lembrou como ele funciona, assim posso aplicar esses conceitos em códigos futuros.
